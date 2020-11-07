@@ -1,0 +1,21 @@
+
+server:
+  port: 2525
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    password: Dorasuresh@2
+    url: jdbc:oracle:thin:@localhost:1521/XE
+    username: SYSTEM
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+apps: 
+  message: 
+    noData: No Data Found
+    nullPointerException: Something Error try Some time
+    invalidId: "Invalid Id"
