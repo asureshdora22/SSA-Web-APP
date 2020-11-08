@@ -7,5 +7,5 @@ public class AppConstants {
 	public static final String INVALID_ID="invalidId";
 	public static final String ERROR="failMsg";
 	
-	
+	public static final String SUCCESS_MSG="successMsg";
 }

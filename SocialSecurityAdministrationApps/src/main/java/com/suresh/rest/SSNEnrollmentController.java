@@ -1,4 +1,4 @@
-package com.suresh.controller;
+package com.suresh.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.suresh.binds.UserRequest;
+import com.suresh.constants.AppConstants;
+import com.suresh.props.AppProperties;
 import com.suresh.service.UserService;
 
 import io.swagger.annotations.ApiResponse;
@@ -17,13 +19,15 @@ public class SSNEnrollmentController {
 		@Autowired
 		private UserService service;
 		
+		@Autowired
+		private AppProperties props;
 		
 		@PostMapping(value = "/createEnroll",
 					 consumes  = {"application/json"})
-		public String handleUserEnroll(@RequestBody UserRequest request){	
+		public ResponseEntity<String> handleUserEnroll(@RequestBody UserRequest request){	
 			
 				 String ssn = service.saveUserEnroll(request);
-				 String scsmsg="Your SSN Enrollment  Completed.Your SSN : "+ssn;
-				return scsmsg;
+				 String scsmsg=props.getMessage().get(AppConstants.SUCCESS_MSG)+ssn;
+				return new ResponseEntity<String>(scsmsg,HttpStatus.CREATED);
 		}
 }

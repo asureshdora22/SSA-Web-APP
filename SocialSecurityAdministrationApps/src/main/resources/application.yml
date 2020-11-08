@@ -18,4 +18,5 @@ apps:
   message: 
     noData: No Data Found
     nullPointerException: Something Error try Some time
-    invalidId: "Invalid Id"
+    invalidId: Invalid Id
+    successMsg: Your SSN Enrollment  Completed.Your SSN  
